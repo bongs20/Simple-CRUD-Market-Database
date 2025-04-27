@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Edit Data</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-light">
+    <div class="container mt-5">
+        <a href="lihat_anggota.php" class="btn btn-secondary mb-3">Lihat Semua Data</a>
+        <h3 class="text-center mb-4">Edit Data Anggota</h3>
+        <?php
+        include 'koneksi.php';
+        $id = $_GET['id'];
+        $query_mysql = mysqli_query($koneksi, "SELECT * FROM anggota WHERE id='$id'");
+        while ($data = mysqli_fetch_array($query_mysql)) {
+        ?>
+        <form action="proses_edit.php" method="post">
+            <input type="hidden" name="id" value="<?php echo $data['id']; ?>">
+            <div class="mb-3">
+                <label for="nama" class="form-label">Nama</label>
+                <input type="text" class="form-control" id="nama" name="nama" value="<?php echo $data['nama']; ?>" required>
+            </div>
+            <div class="mb-3">
+                <label for="alamat" class="form-label">Alamat</label>
+                <input type="text" class="form-control" id="alamat" name="alamat" value="<?php echo $data['alamat']; ?>" required>
+            </div>
+            <div class="mb-3">
+                <label for="email" class="form-label">Email</label>
+                <input type="email" class="form-control" id="email" name="email" value="<?php echo $data['email']; ?>" required>
+            </div>
+            <div class="mb-3">
+                <label for="telp" class="form-label">Telepon</label>
+                <input type="number" class="form-control" id="telp" name="telp" value="<?php echo $data['telp']; ?>" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Simpan</button>
+        </form>
+        <?php } ?>
+    </div>
+</body>
+</html>
