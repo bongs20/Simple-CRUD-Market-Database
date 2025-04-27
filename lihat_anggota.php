@@ -31,6 +31,9 @@ if (!isset($_SESSION['username'])) {
             .table th, .table td {
                 font-size: 0.875rem;
             }
+            .btn {
+                font-size: 0.875rem;
+            }
         }
     </style>
     <script>
@@ -77,7 +80,9 @@ if (!isset($_SESSION['username'])) {
                                 echo "<td>{$a['email']}</td>";
                                 echo "<td>{$a['telp']}</td>";
                                 echo "<td>
-                                        <a href=\"edit.php?id={$a['id']}\" class=\"btn btn-warning btn-sm\">Edit</a>
+                                        <a href=\"edit.php?id={$a['id']}\" class=\"btn btn-warning btn-sm\" title=\"Edit\">
+                                            <i class=\"fas fa-edit\"></i>
+                                        </a>
                                       </td>";
                                 echo "</tr>";
                                 $i++;

@@ -3,6 +3,20 @@
 <head>
     <title>Input Data Baru</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <style>
+        @media (max-width: 576px) {
+            h1 {
+                font-size: 1.5rem;
+            }
+            .table th, .table td {
+                font-size: 0.875rem;
+            }
+            .btn {
+                font-size: 0.875rem;
+            }
+        }
+    </style>
 </head>
 <body class="bg-light">
     <div class="container mt-5">
@@ -25,7 +39,9 @@
                 <label for="telp" class="form-label">Telepon</label>
                 <input type="number" class="form-control" id="telp" name="telp" required>
             </div>
-            <button type="submit" class="btn btn-primary">Simpan</button>
+            <button type="submit" class="btn btn-primary btn-sm" title="Simpan">
+                <i class="fas fa-save"></i>
+            </button>
         </form>
     </div>
 </body>
