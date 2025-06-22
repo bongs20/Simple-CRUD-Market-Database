@@ -1,7 +1,7 @@
 <?php
 session_start();
 if (isset($_SESSION['username'])) {
-    header("Location: lihat_anggota.php");
+    header("Location: view_tabel.php");
     exit;
 }
 
@@ -16,7 +16,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $query = mysqli_query($koneksi, "SELECT * FROM users WHERE username='$username' AND password=MD5('$password')");
     if (mysqli_num_rows($query) > 0) {
         $_SESSION['username'] = $username;
-        header("Location: lihat_anggota.php");
+        header("Location: view_tabel.php");
         exit;
     } else {
         $error = "Username atau Password salah!";
@@ -46,6 +46,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 </head>
 <body class="bg-light">
     <div class="container mt-5">
+        <h4 class="text-center mb-4">MART MANAGEMENT SYSTEM</h4>
         <h3 class="text-center mb-4">Login</h3>
         <?php if ($error): ?>
             <div class="alert alert-danger"><?php echo $error; ?></div>
